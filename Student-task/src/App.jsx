@@ -1,12 +1,13 @@
-import StudentContextProvider from "./components/StudentContextProvider";
-
-import StudentPage from "./StudentPage/StudentPage";
+import StudentsForm from "./components/StudentsForm";
+import StudentsProvider from "./StudentPage/StudentContextProvider";
+import StudentsList from "./StudentPage/StudentsList";
 
 function App() {
   return (
-    <StudentContextProvider>
-      <StudentPage />
-    </StudentContextProvider>
+    <StudentsProvider>
+      <StudentsForm />
+      <StudentsList />
+    </StudentsProvider>
   );
 }
 
