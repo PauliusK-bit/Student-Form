@@ -1,5 +1,5 @@
 import { useStudents } from "./StudentContextProvider";
-import StudentItem from "./Students";
+import StudentItem from "./StudentItem";
 
 const StudentsList = () => {
   const { students } = useStudents();

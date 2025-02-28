@@ -7,24 +7,8 @@ import React, {
   useEffect,
 } from "react";
 import { API_URL } from "../components/config";
-
-export type Student = {
-  id: number;
-  name: string;
-  surname: string;
-  age: number;
-  phone: string;
-  email: string;
-  itKnowledge: number;
-  group: string;
-  interests: string[];
-};
-
-type StudentsContextType = {
-  students: Student[];
-  removeStudent: (id: number) => void;
-  addStudent: (newStudent: Student) => void;
-};
+import { Student, StudentsContextType } from "../components/Types";
+import { toast } from "react-toastify";
 
 const StudentsContext = createContext<StudentsContextType | undefined>(
   undefined
@@ -40,6 +24,7 @@ export const useStudents = () => {
 
 const StudentsProvider = ({ children }: { children: ReactNode }) => {
   const [students, setStudents] = useState<Student[]>([]);
+  const [editingStudent, setEditingStudent] = useState<Student | null>(null);
 
   const removeStudent = async (id: number) => {
     try {
@@ -49,6 +34,7 @@ const StudentsProvider = ({ children }: { children: ReactNode }) => {
       setStudents((prevStudents) =>
         prevStudents.filter((student) => student.id !== id)
       );
+      toast.error("Student was succesfully deleted");
     } catch (error) {
       console.error("Error removing student:", error);
     }
@@ -59,6 +45,7 @@ const StudentsProvider = ({ children }: { children: ReactNode }) => {
       const { data } = await axios.post(`${API_URL}/students`, newStudent);
 
       setStudents((prevStudents) => [...prevStudents, data]);
+      toast.success("Student was created");
     } catch (error) {
       console.error("Error adding student:", error);
     }
@@ -79,7 +66,15 @@ const StudentsProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <StudentsContext.Provider value={{ students, removeStudent, addStudent }}>
+    <StudentsContext.Provider
+      value={{
+        students,
+        removeStudent,
+        addStudent,
+        editingStudent,
+        setEditingStudent,
+      }}
+    >
       {children}
     </StudentsContext.Provider>
   );

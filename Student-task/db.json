@@ -1,145 +1,57 @@
 {
   "students": [
     {
-      "id": "4",
-      "name": "P234us",
-      "surname": "Kasdfsdva",
-      "age": 21,
-      "phone": 61918013,
-      "email": "betkoks@gmail.com",
-      "itKnowledge": 1,
-      "group": "TYPE 22",
-      "interest": [
-        "Javascript"
-      ]
-    },
-    {
-      "id": "b585",
-      "name": "Sukurta",
+      "id": "7450",
+      "name": "Sukurta pakeista",
       "surname": "Sukurta",
-      "age": 23,
-      "phone": "654654654",
-      "email": "paulasdlkjahsd@gmail.com",
-      "itKnowledge": 5,
-      "group": "TYPE 23",
-      "interests": [
-        "Node.js",
-        "Python",
-        "PHP",
-        "JavaScript"
-      ]
-    },
-    {
-      "id": "a6c1",
-      "name": "Sukurta",
-      "surname": "Sukurta",
-      "age": 23,
-      "phone": "654654654",
-      "email": "paulasdlkjahsd@gmail.com",
-      "itKnowledge": 5,
-      "group": "TYPE 23",
-      "interests": [
-        "Node.js",
-        "Python",
-        "PHP",
-        "JavaScript"
-      ]
-    },
-    {
-      "id": "5bc1",
-      "name": "Sukurta",
-      "surname": "Sukurta",
-      "age": 23,
-      "phone": "654654654",
-      "email": "paulasdlkjahsd@gmail.com",
-      "itKnowledge": 5,
-      "group": "TYPE 23",
-      "interests": [
-        "Node.js",
-        "Python",
-        "PHP",
-        "JavaScript"
-      ]
-    },
-    {
-      "id": "9eeb",
-      "name": "Sukurta",
-      "surname": "Sukurta",
-      "age": 23,
-      "phone": "654654654",
-      "email": "paulasdlkjahsd@gmail.com",
-      "itKnowledge": 5,
-      "group": "TYPE 23",
-      "interests": [
-        "Node.js",
-        "Python",
-        "PHP",
-        "JavaScript"
-      ]
-    },
-    {
-      "id": "9d52",
-      "name": "Sukurta",
-      "surname": "Sukurta",
-      "age": 23,
-      "phone": "654654654",
-      "email": "paulasdlkjahsd@gmail.com",
-      "itKnowledge": 5,
-      "group": "TYPE 23",
-      "interests": [
-        "Node.js",
-        "Python",
-        "PHP",
-        "JavaScript"
-      ]
-    },
-    {
-      "id": "f576",
-      "name": "123",
-      "surname": "123",
-      "age": 123,
-      "phone": "2321312323",
+      "age": 3223,
+      "phone": "324432",
       "email": "sdfsdf@gmail.com",
-      "itKnowledge": 1,
-      "group": "TYPE 23",
+      "itKnowledge": 4,
+      "group": "TYPE 20",
       "interests": [
-        "PHP"
+        "Node.js",
+        "PHP",
+        "Python"
       ]
     },
     {
-      "id": "5030",
-      "name": "2432",
-      "surname": "23423",
-      "age": 233,
-      "phone": "23423",
+      "id": "7450",
+      "name": "Sukurta pakeista",
+      "surname": "Sukurta",
+      "age": 32232222222222224,
+      "phone": "324432",
       "email": "sdfsdf@gmail.com",
-      "itKnowledge": 5,
+      "itKnowledge": 10,
+      "group": "TYPE 20",
+      "interests": [
+        "Node.js",
+        "PHP",
+        "Python",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "59a9",
+      "name": "alksjd",
+      "surname": "sdklfjhdsf",
+      "age": 34,
+      "phone": "23434",
+      "email": "paulasdlkjahsd@gmail.com",
+      "itKnowledge": 3,
       "group": "TYPE 24",
-      "interests": [
-        "PHP"
-      ]
+      "interests": []
     },
     {
-      "id": "229d",
-      "name": "asdasd",
-      "surname": "asdasd",
-      "age": 23,
-      "phone": "654654654",
-      "email": "sdfsdf@gmail.com",
-      "itKnowledge": 4,
-      "group": "TYPE 20",
-      "interests": ""
-    },
-    {
-      "id": "229d",
-      "name": "asdasd",
-      "surname": "asdasd",
-      "age": 23,
-      "phone": "654654654",
-      "email": "sdfsdf@gmail.com",
-      "itKnowledge": 4,
-      "group": "TYPE 20",
-      "interests": ""
+      "id": "59a9",
+      "name": "alksjd",
+      "surname": "sdklfjhdsf",
+      "age": 34,
+      "phone": "23434",
+      "email": "paulasdlkjahsd@gmail.com",
+      "itKnowledge": 3,
+      "group": "TYPE 24",
+      "interests": []
     }
   ]
 }

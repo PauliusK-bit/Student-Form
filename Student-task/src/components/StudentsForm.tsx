@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { API_URL } from "./config";
 import axios from "axios";
 import { useStudents } from "../StudentPage/StudentContextProvider";
+import { toast } from "react-toastify";
 
 const StudentsForm = () => {
-  const { addStudent, removeStudent } = useStudents();
+  const { addStudent, removeStudent, editingStudent, setEditingStudent } =
+    useStudents();
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -13,7 +15,7 @@ const StudentsForm = () => {
   const [email, setEmail] = useState("");
   const [itKnowledge, setItKnowledge] = useState(7);
   const [group, setGroup] = useState("TYPE 20");
-  const [interests, setInterests] = useState("");
+  const [interests, setInterests] = useState<string[]>([]);
 
   const [formError, setFormError] = useState("");
 
@@ -45,6 +47,19 @@ const StudentsForm = () => {
     });
   };
 
+  useEffect(() => {
+    if (editingStudent) {
+      setName(editingStudent.name);
+      setSurname(editingStudent.surname);
+      setAge(String(editingStudent.age));
+      setPhone(editingStudent.phone);
+      setEmail(editingStudent.email);
+      setItKnowledge(editingStudent.itKnowledge);
+      setGroup(editingStudent.group);
+      setInterests(editingStudent.interests);
+    }
+  }, [editingStudent]);
+
   const formHandler = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -55,6 +70,7 @@ const StudentsForm = () => {
     }
 
     const studentData = {
+      id: editingStudent?.id,
       name,
       surname,
       age: Number(age),
@@ -66,30 +82,37 @@ const StudentsForm = () => {
     };
 
     try {
-      // Jei reikia pašalinti studentą
-      if (removeStudent && studentData.id) {
-        await removeStudent(studentData.id); // Pašaliname studentą iš API ir konteksto
+      if (editingStudent) {
+        const { data } = await axios.put(
+          `${API_URL}/students/${editingStudent.id}`,
+          studentData
+        );
+
+        removeStudent(editingStudent.id);
+        addStudent(data);
       } else {
-        // Jei kurti naują studentą
         const { data } = await axios.post(`${API_URL}/students`, studentData);
-        addStudent(data); // Pridedame studentą į kontekstą
+        addStudent(data);
       }
+
+      setEditingStudent(null);
+      setName("");
+      setSurname("");
+      setAge("");
+      setPhone("");
+      setEmail("");
+      setItKnowledge(7);
+      setGroup("TYPE 20");
+      setInterests([]);
     } catch (error) {
       console.log("Error handling student", error);
       setFormError("Failed to process student. Please try again");
     }
-
-    // try {
-    //   const { data } = await axios.post(`${API_URL}/students`, studentData);
-    //   addStudent(data);
-    // } catch (error) {
-    //   console.log("Error creating student", error);
-    //   setFormError("Failed to create student. Please try again");
-    // }
   };
 
   return (
     <form onSubmit={formHandler}>
+      <h2>{editingStudent ? "Edit Student" : "Add Student"}</h2>
       <div className="form-control">
         <label htmlFor="name">Name:</label>
         <input
@@ -259,7 +282,7 @@ const StudentsForm = () => {
         </div>
       </fieldset>
 
-      <button type="submit">Submit</button>
+      <button type="submit">{editingStudent ? "Update" : "Submit"}</button>
     </form>
   );
 };
